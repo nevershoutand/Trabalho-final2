@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Clube do Gato - Página inicial</title>
+	<meta charset="UTF-8"/>
+	<link rel="icon" type="image/gif" href="midias/icone.png">
+	<link rel="stylesheet" type="text/css" href="css/estiloong.css">
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+		<header>
+			<div>
+				<p><i class='fas fa-envelope' style='font-size:20px;color:gray#b9b9b9;'></i>
+				contato@clubedogato.org.br</p>
+			</div>
+			<div class="centralizar">
+				<div id="logo" >
+				<a href="Ong.html"><img src="midias/LOGO.png" width="200px"></img></a>
+				</div>
+			<nav class="main-menu">
+				<ul class="menu">
+					<li class="menu-item"><a href="Ong.html" target="_self">Página Inicial</a>
+						<ul>
+							<li><a href="sobreOng.html" target="_self">Sobre a ONG</a></li>
+							<li><a href="sobreOng.html#REP" target="_self">Reportagens</a></li>
+						</ul>
+					</li>
+					<li><a href="adocao.html" target="_self">Adoção</a></li>
+					<li><a href="contatoong.html" target="_self">Contato</a></li>
+					<li><a href="ajuda.html" target="_self">Quero ajudar os animais</a></li>
+				</ul>
+			</nav>
+			</div>
+		</header>
+		<div class="inicio">
+		<div class="cont">
+			<div>
+			  <i class='fas fa-cat' style='font-size:36px;color:white;margin-top:50px;'></i>
+			  <h2 class="timer count-title count-number" data-to="740" data-speed="1750"></h2>
+			  <p>Animais adotados</p>
+			</div>
+        </div>
+		 <script src="js/jquery.min.js"></script>
+		 <script src="js/bootstrap.min.js"></script>
+		 <script id="cont">
+			(function ($) {
+				$.fn.countTo = function (options) {
+					options = options || {};
+
+					return $(this).each(function () {
+						var settings = $.extend({}, $.fn.countTo.defaults, {
+							from:            $(this).data('from'),
+							to:              $(this).data('to'),
+							speed:           $(this).data('speed'),
+							refreshInterval: $(this).data('refresh-interval'),
+							decimals:        $(this).data('decimals')
+						}, options);
+
+						var loops = Math.ceil(settings.speed / settings.refreshInterval),
+							increment = (settings.to - settings.from) / loops;
+
+						var self = this,
+							$self = $(this),
+							loopCount = 0,
+							value = settings.from,
+							data = $self.data('countTo') || {};
+
+						$self.data('countTo', data);
+						if (data.interval) {
+							clearInterval(data.interval);
+						}
+						data.interval = setInterval(updateTimer, settings.refreshInterval);
+						render(value);
+						function updateTimer() {
+							value += increment;
+							loopCount++;
+							render(value);
+							if (typeof(settings.onUpdate) == 'function') {
+								settings.onUpdate.call(self, value);
+							}
+							if (loopCount >= loops) {
+								// remove the interval
+								$self.removeData('countTo');
+								clearInterval(data.interval);
+								value = settings.to;
+
+								if (typeof(settings.onComplete) == 'function') {
+									settings.onComplete.call(self, value);
+								}
+							}
+						}
+						function render(value) {
+							var formattedValue = settings.formatter.call(self, value, settings);
+							$self.html(formattedValue);
+						}
+					});
+				};
+				$.fn.countTo.defaults = {
+					from: 0,             
+					to: 0,            
+					speed: 1000,         
+					refreshInterval: 100,  
+					decimals: 0,           
+					formatter: formatter,  
+					onUpdate: null,        
+					onComplete: null       
+				};
+				function formatter(value, settings) {
+					return value.toFixed(settings.decimals);
+				}
+			}(jQuery));
+
+			jQuery(function ($) {
+			  // custom formatting example
+			  $('.count-number').data('countToOptions', {
+				formatter: function (value, options) {
+				  return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+				}
+			  });
+			  $('.timer').each(count);  
+			  function count(options) {
+				var $this = $(this);
+				options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+				$this.countTo(options);
+			  }
+			});
+		</script>
+		
+			<div class="midias">
+				<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fclubedogatobsb%2Fvideos%2F479864542489119%2F&width=500&show_text=false&height=500&appId" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>
+			</div>
+			<div class="midias">
+				<iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fclubedogatobsb%2Fvideos%2F1598068110277466%2F&width=500&show_text=false&height=500&appId" width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media" allowFullScreen="true"></iframe>
+			</div>
+			<div class="clube">
+				<h1>Dica para adoção de gatos:</h1>
+				<h2>Castrar é um ato de amor!</h2>
+			</div>
+			<div class="mid">
+				<p>A castração é um bem enorme que você faz pelo seu bichinho.
+				Alguns veterinários fazem castração precoce (quando o animal atinge no mínimo 2 meses), mas a maior parte prefere castrar quando o gato completa 4 meses (ou quando ele atinge 2kg).</p>
+			</div>
+			<div class="mid">
+				<h2>Vantagens de castrar a fêmea<h2>
+			</div>
+			<div class="mid">
+				<img src="midias/femea.jpg"></img>
+			</div>
+			<div class="mid">
+				<ul>A castração na fêmea:<ul>
+				<li> evita miados de cio</li> 
+				<li>evita doenças como câncer de útero, de mama, DSTs e melhora a qualidade de vida do animal de um modo geral</li> 
+				<li>evita a Piometra, inflamação no útero que leva à morte</li> 
+				<li> evita superpopulação de filhotes</li> 
+				<li>evita gastos com uma cesariana, que, em geral, é mais caro que uma castração, caso haja dificuldades no parto</li>
+			</div>
+			<div class="mid" id="aten">
+				<h3>ATENÇÃO: Não dê injeções anticoncepcionais!</h3>
+				<p>As injeções contraceptivas não previnem 100% e aumentam em 90% as chances de a gata desenvolver cancer de mama. Mais informações:<a href="http://bit.ly/2KtKKvk">http://bit.ly/2KtKKvk</a></p>
+			</div>
+			<div class="mid">
+				<h2>Vantagens de castrar o macho<h2>
+			</div>
+			<div class="mid">
+				<img src="midias/macho.jpg"></img>
+			</div>
+			<div class="mid">
+				<ul>A castração no macho:<ul>
+				<li>evita tumores nos testículos, nas glândulas hepáticas e anal e câncer de próstata</li> 
+				<li>diminui o risco de contraírem doenças venéreas transmitidas pelo ato sexual ou transmitidas a partir de brigas com outros animais</li> 
+				<li>diminuir a possibilidade de demarcação de território com urina e de outros comportamentos dominantes</li> 
+				<li> diminui a ansiedade e o risco de fuga (e, com isso, diminui o risco de atropelamentos)</li> 
+			</div>
+			<div class="clube">
+				<h2>Castre seu animal!</h2>
+			</div>
+			
+			<!--botoes-->
+			<div id="boxBotao">
+				<p>Acesse nossas Redes Sociais!</p>
+				<a href="https://www.facebook.com/clubedogatobsb/" class="fa fa-facebook"  style='font-size:25px'></a>
+				<a href="http://www.instagram.com/clubedogatobrasil/" class="fa fa-instagram" style='font-size:25px'></a> 
+				<a href="https://api.whatsapp.com/send?text=P%C3%A1gina%20Inicial%20https%3A%2F%2Fclubedogato.org.br%2F" class="fa fa-whatsapp" style='font-size:25px'></a> 
+				<a href="https://twitter.com/intent/tweet?text=P%C3%A1gina%20Inicial&url=https%3A%2F%2Fclubedogato.org.br%2F" class="fa fa-twitter" style='font-size:25px'></a>
+				
+			</div>
+		</div>
+		
+		<footer>
+		<ul>
+		<li><a href="sobreOng.html" target="_self">Sobre Nós<a/></li> 
+		<li><a href="sobreOng.html#REP" target="_self">Reportagens<a/></li>
+		<li><a href="contatoong.html" target="_self">Contato<a/></li>
+		<li><a href="adocao.html" target="_self">Adoção<a/></li>
+		<li><a href="ajuda.html" target="_self">Quero ajudar<a/></li>
+		<ul>
+		<div>
+			<p>@Copyright Andressa Carolina de Oliveira 2019</p>
+			<p>Website da ONG Clube do Gato</p>
+		</div>
+		</footer>
+	</body>
+
+</html>
